@@ -1,0 +1,12 @@
+E:\Computer Science\Projects\Nogomi Crawler\Nogomi Crawler\bin\Debug\Nogomi Crawler.exe.config
+E:\Computer Science\Projects\Nogomi Crawler\Nogomi Crawler\bin\Debug\Nogomi Crawler.exe
+E:\Computer Science\Projects\Nogomi Crawler\Nogomi Crawler\bin\Debug\Nogomi Crawler.pdb
+E:\Computer Science\Projects\Nogomi Crawler\Nogomi Crawler\bin\Debug\HtmlAgilityPack.dll
+E:\Computer Science\Projects\Nogomi Crawler\Nogomi Crawler\bin\Debug\HtmlAgilityPack.pdb
+E:\Computer Science\Projects\Nogomi Crawler\Nogomi Crawler\bin\Debug\HtmlAgilityPack.xml
+E:\Computer Science\Projects\Nogomi Crawler\Nogomi Crawler\obj\Debug\Nogomi Crawler.csprojResolveAssemblyReference.cache
+E:\Computer Science\Projects\Nogomi Crawler\Nogomi Crawler\obj\Debug\Nogomi_Crawler.Form1.resources
+E:\Computer Science\Projects\Nogomi Crawler\Nogomi Crawler\obj\Debug\Nogomi_Crawler.Properties.Resources.resources
+E:\Computer Science\Projects\Nogomi Crawler\Nogomi Crawler\obj\Debug\Nogomi Crawler.csproj.GenerateResource.Cache
+E:\Computer Science\Projects\Nogomi Crawler\Nogomi Crawler\obj\Debug\Nogomi Crawler.exe
+E:\Computer Science\Projects\Nogomi Crawler\Nogomi Crawler\obj\Debug\Nogomi Crawler.pdb
