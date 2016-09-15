@@ -1,4 +1,4 @@
-﻿using HtmlAgilityPack;
+using HtmlAgilityPack;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -36,11 +36,23 @@ namespace Nogomi_Crawler
            .SelectMany(tr => tr.Descendants("a"))
            .ToList();
 
-            for (int i = 0; i < links_list.Count; i += 4)
+            string[] splitter = links_list[0].OuterHtml.Split('/');
+            string artist = splitter[4];
+
+            HashSet<string> vis_links = new HashSet<string>();
+
+            bool wait = true;
+
+            for (int i = 0; i < links_list.Count; i++)
             {
                 string tmp = links_list[i].OuterHtml;
                 var regex = new Regex("<a [^>]*href=(?:'(?<href>.*?)')|(?:\"(?<href>.*?)\")", RegexOptions.IgnoreCase);
-                string song_url = regex.Matches(tmp).OfType<Match>().Select(m => m.Groups["href"].Value).SingleOrDefault();
+                string song_url = regex.Matches(tmp).OfType<Match>().Select(m => m.Groups["href"].Value).FirstOrDefault();
+
+                if (vis_links.Contains(song_url) || song_url.Contains(artist) == false || song_url.Contains("#"))
+                    continue;
+
+                vis_links.Add(song_url);
 
                 html = webClient.DownloadString(song_url);
                 doc = new HtmlAgilityPack.HtmlDocument();
@@ -55,6 +67,11 @@ namespace Nogomi_Crawler
                         regex = new Regex("<a [^>]*href=(?:'(?<href>.*?)')|(?:\"(?<href>.*?)\")", RegexOptions.IgnoreCase);
                         string download_url = regex.Matches(item.OuterHtml).OfType<Match>().Select(m => m.Groups["href"].Value).FirstOrDefault();
                         System.Diagnostics.Process.Start(download_url);
+
+                        if (wait)
+                            System.Threading.Thread.Sleep(15000);   //Wait after first download dialog so the user may edit download directory
+
+                        wait = false;
                     }
                 }
             }
